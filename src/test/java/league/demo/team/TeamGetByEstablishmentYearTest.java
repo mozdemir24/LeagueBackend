@@ -1,6 +1,6 @@
 package league.demo.team;
 
-import league.demo.model.Team;
+import league.demo.entity.Team;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;
 
@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 
 public class TeamGetByEstablishmentYearTest extends TeamBaseTest {
 

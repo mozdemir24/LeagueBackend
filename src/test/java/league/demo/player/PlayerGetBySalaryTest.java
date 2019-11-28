@@ -1,7 +1,7 @@
 package league.demo.player;
 
-import league.demo.model.Player;
-import league.demo.player.dto.DtoPlayerSalaryResponse;
+import league.demo.entity.Player;
+import league.demo.module.player.dto.DtoPlayerSalaryResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;
 

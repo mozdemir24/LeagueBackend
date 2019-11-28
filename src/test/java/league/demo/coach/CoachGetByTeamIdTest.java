@@ -1,7 +1,7 @@
 package league.demo.coach;
 
-import league.demo.model.Coach;
-import league.demo.model.Team;
+import league.demo.entity.Coach;
+import league.demo.entity.Team;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;
 

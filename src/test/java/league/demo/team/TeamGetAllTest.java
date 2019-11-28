@@ -1,6 +1,6 @@
 package league.demo.team;
 
-import league.demo.team.dto.DtoListTeamsResponse;
+import league.demo.module.team.dto.DtoListTeamsResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;
 

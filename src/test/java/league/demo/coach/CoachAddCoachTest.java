@@ -1,8 +1,8 @@
 package league.demo.coach;
 
-import league.demo.coach.dto.DtoAddCoachRequest;
-import league.demo.model.Coach;
-import league.demo.model.Team;
+import league.demo.entity.Coach;
+import league.demo.entity.Team;
+import league.demo.module.coach.dto.DtoAddCoachRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 

@@ -1,6 +1,6 @@
 package league.demo.player;
 
-import league.demo.player.dto.DtoListAllPlayers;
+import league.demo.module.player.dto.DtoListAllPlayers;
 import league.demo.util.CalendarFormatter;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;

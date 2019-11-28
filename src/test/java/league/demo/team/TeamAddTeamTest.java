@@ -1,8 +1,8 @@
 package league.demo.team;
 
-import league.demo.model.FlagColor;
-import league.demo.model.Team;
-import league.demo.team.dto.DtoAddTeamRequest;
+import league.demo.entity.FlagColor;
+import league.demo.entity.Team;
+import league.demo.module.team.dto.DtoAddTeamRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 

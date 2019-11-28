@@ -1,8 +1,8 @@
 package league.demo.player;
 
-import league.demo.model.Player;
-import league.demo.player.dto.DtoDeletePlayerResponse;
-import league.demo.team.dto.Status;
+import league.demo.entity.Player;
+import league.demo.module.player.dto.DtoDeletePlayerResponse;
+import league.demo.module.team.dto.Status;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;
 

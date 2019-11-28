@@ -1,8 +1,8 @@
 package league.demo.team;
 
-import league.demo.model.Team;
-import league.demo.team.dto.DtoDeleteTeamResponse;
-import league.demo.team.dto.Status;
+import league.demo.entity.Team;
+import league.demo.module.team.dto.DtoDeleteTeamResponse;
+import league.demo.module.team.dto.Status;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;
 
@@ -14,7 +14,6 @@ import java.util.stream.StreamSupport;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 
 public class TeamDeleteTeamTest extends TeamBaseTest {
 

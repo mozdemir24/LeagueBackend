@@ -1,7 +1,7 @@
 package league.demo.player;
 
-import league.demo.model.Player;
-import league.demo.player.dto.DtoInjuredPlayersResponse;
+import league.demo.entity.Player;
+import league.demo.module.player.dto.DtoInjuredPlayersResponse;
 import league.demo.util.CalendarFormatter;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;

@@ -1,10 +1,11 @@
 package league.demo.player;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import league.demo.model.FlagColor;
-import league.demo.model.Player;
-import league.demo.model.Team;
-import league.demo.team.TeamRepository;
+import league.demo.entity.FlagColor;
+import league.demo.entity.Player;
+import league.demo.entity.Team;
+import league.demo.module.player.PlayerRepository;
+import league.demo.module.team.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;

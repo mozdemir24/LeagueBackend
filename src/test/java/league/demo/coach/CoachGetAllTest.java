@@ -1,6 +1,6 @@
 package league.demo.coach;
 
-import league.demo.coach.dto.DtoListAllCoaches;
+import league.demo.module.coach.dto.DtoListAllCoaches;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;
