@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -25,7 +26,7 @@ public class PlayerGetByInjuryStatusTest extends PlayerBaseTest {
                 .collect(Collectors.toList());
 
         MvcResult mvcResult = mvc.perform(
-                get("/player/injured/{status}", true))
+                get("/player/injured/{status}", true).with(user("username").password("pass").roles("USER")))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -67,7 +68,7 @@ public class PlayerGetByInjuryStatusTest extends PlayerBaseTest {
                 .collect(Collectors.toList());
 
         MvcResult mvcResult = mvc.perform(
-                get("/player/injured/{status}", false))
+                get("/player/injured/{status}", false).with(user("username").password("pass").roles("USER")))
                 .andExpect(status().isOk())
                 .andReturn();
 

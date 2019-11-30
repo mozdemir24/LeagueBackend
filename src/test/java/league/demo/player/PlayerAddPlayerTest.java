@@ -11,6 +11,8 @@ import java.util.stream.StreamSupport;
 
 import static java.sql.Date.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -32,6 +34,7 @@ public class PlayerAddPlayerTest extends PlayerBaseTest {
                 testTeam.getId());
 
         mvc.perform(post("/player/add")
+                .with(user("username").password("pass").roles("USER")).with(csrf())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(playerRequest)))
                 .andExpect(status().isOk());

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MvcResult;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -19,7 +20,8 @@ public class PlayerGetByIdTest extends PlayerBaseTest {
                 .filter(player -> player.getName().equals("Radamel"))
                 .findFirst().get();
 
-        MvcResult mvcResult = mvc.perform(get("/player/{id}", candidatePlayer.getId()))
+        MvcResult mvcResult = mvc.perform(get("/player/{id}", candidatePlayer.getId())
+                .with(user("username").password("pass").roles("USER")))
                 .andExpect(status().isOk())
                 .andReturn();
 

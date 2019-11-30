@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -22,7 +23,8 @@ public class TeamGetByEstablishmentYearTest extends TeamBaseTest {
                 .collect(Collectors.toList());
 
         MvcResult mvcResult = mvc.perform(
-                get("/team//list/{establishmentYear}", 1903))
+                get("/team//list/{establishmentYear}", 1903)
+                        .with(user("username").password("pass").roles("USER")))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -51,7 +53,7 @@ public class TeamGetByEstablishmentYearTest extends TeamBaseTest {
         prepareFixtures();
 
         MvcResult mvcResult = mvc.perform(
-                get("/team//list/{establishmentYear}", 1902))
+                get("/team//list/{establishmentYear}", 1902).with(user("username").password("pass").roles("USER")))
                 .andExpect(status().isOk())
                 .andReturn();
 

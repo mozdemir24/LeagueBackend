@@ -9,6 +9,8 @@ import org.springframework.http.MediaType;
 import java.util.stream.StreamSupport;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -25,6 +27,7 @@ public class TeamAddTeamTest extends TeamBaseTest {
                 FlagColor.YELLOW);
 
         mvc.perform(post("/team/add")
+                .with(user("user").password("pass").roles("USER")).with(csrf())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsBytes(teamRequest)))
                 .andExpect(status().isOk())

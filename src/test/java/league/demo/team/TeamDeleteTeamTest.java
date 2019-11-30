@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -24,7 +26,8 @@ public class TeamDeleteTeamTest extends TeamBaseTest {
                 .filter(team -> team.getName().equals("Fenerbahce"))
                 .collect(Collectors.toList()).get(0);
 
-        MvcResult mvcResult = mvc.perform(delete("/team/delete/{id}", candidateTeam.getId()))
+        MvcResult mvcResult = mvc.perform(delete("/team/delete/{id}", candidateTeam.getId())
+                .with(user("username").password("pass").roles("USER")).with(csrf()))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -47,7 +50,8 @@ public class TeamDeleteTeamTest extends TeamBaseTest {
     public void cannotDeleteTeam() throws Exception {
         prepareFixtures();
 
-        MvcResult mvcResult = mvc.perform(delete("/team/delete/{id}", UUID.randomUUID()))
+        MvcResult mvcResult = mvc.perform(delete("/team/delete/{id}", UUID.randomUUID())
+                .with(user("username").password("pass").roles("USER")).with(csrf()))
                 .andExpect(status().isOk())
                 .andReturn();
 
